@@ -1,0 +1,71 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+ try{InputStreamReader in=new InputStreamReader(System.in);
+    BufferedReader in1=new BufferedReader(in);
+   String prob=in1.readLine();
+     String[] part=prob.split(" ");
+     int N=Integer.parseInt(part[0]);
+     int M=Integer.parseInt(part[1]);
+     
+    ArrayList<Integer> num=new ArrayList<Integer>();
+     for(int i=0;i<N;i++)
+     {
+       String[] h= (in1.readLine()).split(""); 
+       for(int j=0;j<M;j++){
+           num.add(Integer.parseInt(h[j]));
+     }
+     }
+    
+    int[] arr1=new int[N];
+      int p=0;
+     for(int r=0;r<N-1;r++)
+     {int[] arr=new int[N];
+      int g=0;
+            for(int u=1*(r+1);u<N;u++)
+            {
+                int k=(u*M);
+                int max=0;
+                    for(int i=0+(M*r);i<M+(M*r);i++)
+                        { 
+                        if(num.get(i)+num.get(k)==1 || num.get(k)+num.get(k)==2)
+                            { 
+                            max++;
+                            }
+                        k=k+1;
+         
+                         } 
+          
+            arr[g]=max;
+            g++;
+          
+             }
+          arr1[p]=maximum(arr);
+      p++;
+       
+     
+     }
+     int s=maximum(arr1);
+     System.out.println(s);
+    
+     int count=0;
+     for(int i=0;i<arr1.length;i++)
+     {
+         if(arr1[i]==s)
+             count++;
+     }    System.out.println(count);
+    }catch(IOException e){}
+    }
+    public static int maximum(int[] arr){
+       
+    int maximum=arr[0];
+     for(int t=1;t<arr.length;t++)
+     {if(maximum<arr[t])
+      maximum=arr[t];
+      }
+    
+    return maximum;}
+}

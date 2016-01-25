@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+ try{InputStreamReader in=new InputStreamReader(System.in);
+    BufferedReader in1=new BufferedReader(in);
+   String prob=in1.readLine();
+     String[] part=prob.split(" ");
+     int rd=Integer.parseInt(part[0]);
+     int rm=Integer.parseInt(part[1]);
+     int ry=Integer.parseInt(part[2]);
+     String prob1=in1.readLine();
+     String[] part1=prob1.split(" ");
+     int exd=Integer.parseInt(part1[0]);
+     int exm=Integer.parseInt(part1[1]);
+     int exy=Integer.parseInt(part1[2]);
+    
+    //if((exd==rd && (rm<=exm && ry==exy)||(rm>exm && ry<exy)||(rm<exm && ry<exy))||((exd<rd && (rm<=exm && ry==exy)||(rm>exm && ry<exy)||(rm<exm && ry<exy)))||((exd>rd && (rm<=exm && ry==exy)||(rm>exm && ry<exy)||(rm<exm && ry<exy)))) 
+    // System.out.println("0");
+    
+  if(rd>exd && rm==exm && ry==exy)
+    {
+        System.out.println(15*(rd-exd));
+    }
+    else if(rm>exm && ry==exy)
+    {System.out.println(500*(rm-exm));}
+    else if(ry>exy)
+        {System.out.println("10000");}  
+     else
+           System.out.println("0");
+    
+    }catch(IOException e){}
+    }
+    
+    public static int maximum(int[] arr){
+       
+    int maximum=arr[0];
+     for(int t=1;t<arr.length;t++)
+     {if(maximum<arr[t])
+      maximum=arr[t];
+      }
+    // System.out.println("maximum"+maximum);
+    return maximum;}
+}

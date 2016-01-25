@@ -1,0 +1,76 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+ try{
+     InputStreamReader in=new InputStreamReader(System.in);
+ 
+    BufferedReader in1=new BufferedReader(in);
+   int t=Integer.parseInt(in1.readLine());
+    
+   
+   for(int j=0;j<t;j++)
+    {    int count=0;
+         String s=in1.readLine();
+         String[] prob=s.split("");
+           //System.out.println("i44 "+prob[44]);
+         ArrayList<Integer> a=new ArrayList<Integer>();
+         for(int i=0;i<prob.length/2;i++)
+            {   int flag=0;
+            //System.out.println("ith "+prob[i]);
+            //System.out.println("last "+prob[prob.length-1-i]);
+                if(!(prob[i].equals(prob[prob.length-1-i])))
+                {
+                
+                      if((prob[i+1].equals(prob[prob.length-1-i])))
+                      {
+                          for(int y=i+1;y<prob.length/2;y++)
+                          {
+                              if(!(prob[y].equals(prob[prob.length-y])))   
+                               {flag=1;}
+                          }
+                          if(flag==1)
+                          {a.add(prob.length-1-i);break;}
+                          else
+                          {a.add(i);break;}
+                      }
+                      else if((prob[i].equals(prob[prob.length-2-i])))
+                      { 
+                          for(int y=i;y<prob.length/2;y++)
+                          {
+                              if(!(prob[y].equals(prob[prob.length-2-y])))   
+                               {flag=1;}
+                          }
+                          if(flag==1)
+                          {a.add(i);break;}
+                          else
+                          {a.add(prob.length-1-i);break;}
+                          
+                      }
+                      
+                      }
+                      
+                   }
+                
+                       
+                    
+                
+                
+        
+            
+         if(a.size()==0)
+             System.out.println("-1");
+         else
+             System.out.println(a.get(0));
+    }
+ 
+ 
+ 
+ } catch(IOException e){}
+    }
+    
+   
+}

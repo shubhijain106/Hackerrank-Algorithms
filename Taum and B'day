@@ -1,0 +1,64 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       try{ InputStreamReader in=new InputStreamReader(System.in);
+        BufferedReader in1 =new BufferedReader(in);
+        int t=Integer.parseInt(in1.readLine());
+        for(int i=0;i<t;i++)
+        {BigInteger cost=new BigInteger("0");
+            String prob=in1.readLine();
+            String prob2=in1.readLine();
+            String[] parts=prob.split(" ");
+            String[] parts2=prob2.split(" ");
+            int nb=Integer.parseInt(parts[0]);
+            int nw=Integer.parseInt(parts[1]);
+            int cb1=Integer.parseInt(parts2[0]);
+            int wb1=Integer.parseInt(parts2[1]);
+            int z1=Integer.parseInt(parts2[2]);
+            BigInteger b=BigInteger.valueOf(nb);
+            BigInteger w=BigInteger.valueOf(nw);
+            BigInteger cb=BigInteger.valueOf(cb1);
+            BigInteger wb=BigInteger.valueOf(wb1);
+            BigInteger z=BigInteger.valueOf(z1);
+            
+            if(cb.compareTo(z)<=0 && wb.compareTo(z)<=0)
+                {
+                cost=(w.multiply(wb)).add(b.multiply(cb));
+                }
+         if(cb.compareTo(z)<=0 && wb.compareTo(z)>0)
+             {if(cb.add(z).compareTo(wb)<0)
+             cost=(w.multiply(cb.add(z))).add(cb.multiply(b));
+              else
+             cost=(w.multiply(wb)).add(b.multiply(cb));
+             }
+         if(wb.compareTo(z)>0 && cb.compareTo(z)>0)
+             {BigInteger min;
+              min=cb.min(wb);
+              if(min==cb)
+              {if(cb.add(z).compareTo(wb)<0)
+                  cost=(b.multiply(cb)).add(w.multiply(z.add(cb)));
+               else
+                cost=(w.multiply(wb)).add(b.multiply(cb));   
+              }
+              else {
+                  if(wb.add(z).compareTo(cb)<0)
+             cost=(w.multiply(wb)).add(b.multiply(z.add(wb)));
+              else
+                cost=(w.multiply(wb)).add(b.multiply(cb));   
+              }
+             }
+         if(wb.compareTo(z)<=0 && cb.compareTo(z)>0)
+             { if(wb.add(z).compareTo(cb)<0)
+               cost=(b.multiply(wb.add(z))).add(wb.multiply(w));
+              else
+             cost=(w.multiply(wb)).add(b.multiply(cb));
+             
+             }
+          System.out.println(cost);  
+        }
+    }catch(IOException e){}
+    }}

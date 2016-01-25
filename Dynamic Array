@@ -1,0 +1,54 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+ try{
+     InputStreamReader in=new InputStreamReader(System.in);
+     BufferedReader in1=new BufferedReader(in);
+    String prob=in1.readLine();
+    String[] parts=prob.split(" ");
+    int n=Integer.parseInt(parts[0]);
+    int q=Integer.parseInt(parts[1]);
+     List<List<Integer>> arr = new ArrayList<>();
+     for(int i=0;i<n;i++)
+     {
+         arr.add(new ArrayList<Integer>());
+     
+     }
+     int l=0;
+     for(int i=0;i<q;i++)
+     {
+       String[] po=in1.readLine().split(" ");
+       int type=Integer.parseInt(po[0]);
+       int x=Integer.parseInt(po[1]);
+       int y=Integer.parseInt(po[2]);
+       //System.out.println("x"+x+"y"+y);
+       if(type==1)
+       {
+           int seq=(x^l)%n;
+           
+           arr.get(seq).add(y);
+          //System.out.println("seq"+arr.get(seq));
+           
+       }
+       else
+       {
+           int seq=(x^l)%n;
+           //System.out.println(arr.get(seq));
+           int size=arr.get(seq).size();
+           int value=y%size;
+           //System.out.println("val"+value);
+           System.out.println(arr.get(seq).get(value));
+           l=arr.get(seq).get(value);
+       }
+     }
+     
+      
+ } catch(IOException e){}
+    }
+    
+   
+}

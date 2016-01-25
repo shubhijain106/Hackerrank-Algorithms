@@ -1,0 +1,91 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+ try{
+     InputStreamReader in=new InputStreamReader(System.in);
+ 
+    BufferedReader in1=new BufferedReader(in);
+   String s=in1.readLine();
+   
+  
+   int n=Integer.parseInt(s);
+ArrayList<String> a=new ArrayList<String>();
+      
+      for(int i=0;i<n;i++)
+      {
+        String s1=in1.readLine(); 
+        a.add(s1);
+                
+      }
+      int min=(a.get(0)).length();
+      int temp=0;
+    for(int i=1;i<a.size();i++)
+    {
+        if(min>=(a.get(i)).length())
+        { 
+            min=(a.get(i)).length();
+            temp=i;
+        }
+        
+    }
+       //System.out.println("temp"+temp);
+    
+        
+        String[] chars=(a.get(temp)).split("");
+        ArrayList<Character> select=new ArrayList<Character>();
+        for(int o=0;o<chars.length;o++)
+        {
+            select.add(chars[o].charAt(0));
+        }
+       
+        for(int i=0;i<a.size();i++)
+        { //System.out.println("----------") ;
+        if(temp!=i)
+             {
+            
+            String[] chars1=(a.get(i)).split("");
+        
+          for(int t=0;t<select.size();t++)
+          { //System.out.println("Select"+select);
+             // System.out.println("t"+t);
+              int flag=1;
+               for(int l=0;l<chars1.length;l++)
+               { // System.out.println("chars1    "+chars1[l]);
+                   if((char)select.get(t)==chars1[l].charAt(0))
+                   {
+                       flag=0;
+                   }
+               }
+               if(flag==1)
+               {//System.out.println("delete "+select.get(t));
+               for(int p=t+1;p<select.size();p++)
+               {
+                if((char)select.get(t)==(char)select.get(p))
+                 select.remove(p);
+               }
+                select.remove(t);
+               
+                  //System.out.println("select"+select);
+          }
+          
+        }
+        }
+        }
+        for(int p=0;p<select.size()-1;p++)
+               {for(int y=p+1;y<select.size();y++){
+                if((char)select.get(p)==(char)select.get(y))
+                 select.remove(y);
+               }}
+             // System.out.println("select"+select);
+        System.out.println(select.size());
+    
+    
+     }catch(IOException e){}
+    }
+    
+   
+}

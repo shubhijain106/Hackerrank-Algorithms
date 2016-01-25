@@ -1,0 +1,60 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+ try{
+     InputStreamReader in=new InputStreamReader(System.in);
+ 
+    BufferedReader in1=new BufferedReader(in);
+  int[][] arr=new int[26][2];
+         String s=in1.readLine();
+         String[] prob1=s.split("");
+         char[] chars=new char[26];
+         for(int i=0;i<26;i++)
+         {
+             chars[i]=(char)(97+i);
+         }
+        
+         for(int i=0;i<26;i++)
+         {   int count=0;
+             for(int j=0;j<prob1.length;j++)
+             {
+              if(prob1[j].charAt(0)==chars[i])
+                  count++;
+             }
+             arr[i][0]=count;
+         } 
+         
+         String n=in1.readLine();
+         String[] prob2=n.split(""); 
+         
+         
+         for(int i=0;i<26;i++)
+         {   int count=0;
+             for(int j=0;j<prob2.length;j++)
+             {
+              if(prob2[j].charAt(0)==chars[i])
+                  count++;
+             }
+             arr[i][1]=count;
+         }
+         int[] fi=new int[26];
+         int sum=0;
+         for(int i=0;i<26;i++)
+         {
+             fi[i]=Math.min(arr[i][0],arr[i][1]);
+            // System.out.println(fi[i]);
+             if(fi[i]>=1)
+                 sum=sum+fi[i];
+         }
+       System.out.println(((prob1.length+prob2.length)-2*sum));
+             
+         
+ } catch(IOException e){}
+    }
+    
+   
+}

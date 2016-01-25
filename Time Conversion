@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+      try{  
+        InputStreamReader in=new InputStreamReader(System.in);
+        BufferedReader in1=new BufferedReader(in);
+        String s=in1.readLine();
+          String[] l=s.split(":");
+          int hh=Integer.parseInt(l[0]);
+          int newhh=hh+12;
+          
+          String[] part=l[2].split("(?<=\\G..)");
+        
+        if(newhh==24 && (part[1].equals("PM")))
+              System.out.println("12:"+l[1]+":"+part[0]);
+          
+             else if(newhh==24 && (part[1].equals("AM")))
+             System.out.println("00:"+l[1]+":"+part[0]);
+             else if(part[1].equals("AM"))
+                System.out.println(l[0]+":"+l[1]+":"+part[0]); 
+               else
+             System.out.println(newhh+":"+l[1]+":"+part[0]);
+                 
+    }catch(IOException e){}
+    }}

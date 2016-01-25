@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        try{
+         InputStreamReader in=new InputStreamReader(System.in);
+        BufferedReader in1 =new BufferedReader(in);
+        String prob=in1.readLine();
+            String[] part=prob.split(" ");
+            int n=Integer.parseInt(part[0]);
+            int t=Integer.parseInt(part[1]);
+            String prob1=in1.readLine();
+            String[] part1=prob1.split(" "); 
+            int[] arr=new int[n];
+            
+            for(int i=0;i<n;i++)
+            {arr[i]=Integer.parseInt(part1[i]);
+            }
+        for(int i=0;i<t;i++){
+            String prob2=in1.readLine();
+            String[] part2=prob2.split(" "); 
+            int ll=Integer.parseInt(part2[0]);
+            int hl=Integer.parseInt(part2[1]);
+            int min=arr[ll];
+            for(int j=ll;j<=hl;j++)
+                {
+                 if(min>arr[j])
+                     min=arr[j];
+             }
+            System.out.println(min);
+        }
+        }catch(IOException e){}
+    }
+}

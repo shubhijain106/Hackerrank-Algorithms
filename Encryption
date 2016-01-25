@@ -1,0 +1,82 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+ try{
+     InputStreamReader in=new InputStreamReader(System.in);
+ 
+    BufferedReader in1=new BufferedReader(in);
+   String t=in1.readLine();
+   int l=t.length();
+   //System.out.println("l"+l);
+     double a1=Math.sqrt(l);
+   //System.out.println("sqrt"+a1);  
+int colc = (int) Math.ceil(a1);
+  
+int rowc = (int) Math.floor(a1);
+   //System.out.println("colc"+colc); 
+     //System.out.println("rowc"+rowc); 
+     
+  
+  int minr=colc;
+  int minc=colc;
+     for(int r=rowc;r<=colc;r++)
+     {
+     for(int c=rowc;c<=colc;c++)
+     {
+         if(r*c >=l)
+         {
+             if(  r<=c )
+             {//System.out.println("r*c"+r+"*"+c);
+             
+             if(r<minr)
+                 minr=r;
+             if(c<minc)
+                  minc=c;
+             }
+         }
+     }
+ }
+     //System.out.println("min"+minr*minc);
+    String[][] arr=new String[minr][minc];
+     int p=0;
+     int flag=0;
+     for(int i=0;i<minr;i++)
+     {
+     for(int j=0;j<minc;j++)
+     {
+        if(p==(l))
+       {arr[i][j]="";
+       
+       }
+         else{
+      arr[i][j]= t.substring(p, p+1);
+     
+         p=p+1;}
+      
+     }
+   
+    
+ } 
+     
+     for(int i=0;i<minc;i++)
+     {
+         for(int j=0;j<minr;j++)
+     {
+     System.out.print(arr[j][i]);
+     }
+     
+     System.out.print(" ");
+    
+     }
+    
+     
+
+     }catch(IOException e){}
+    }
+    
+   
+}

@@ -1,0 +1,74 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+ try{
+     InputStreamReader in=new InputStreamReader(System.in);
+ 
+    BufferedReader in1=new BufferedReader(in);
+   int t=Integer.parseInt(in1.readLine());
+    
+   
+   for(int j=0;j<t;j++)
+    {  int count=0;
+        String s=in1.readLine();
+        if(s.length()%2!=0)
+        {  System.out.println("-1");
+        
+        }
+        else
+        {
+        int n=s.length()/2;
+        String[] parts=s.split("");
+       ArrayList<String> a1=new  ArrayList<String>();
+        ArrayList<String> a2=new  ArrayList<String>();
+        for(int i=0;i<n;i++)
+                {
+                 a1.add(parts[i]);
+                }
+         for(int i=0;i<n;i++)
+                {
+                a2.add(parts[n+i]);
+                
+                }
+//System.out.println("a2"+a2);
+//System.out.println("a1"+a1);
+
+int temp=0;
+ for(int i=0;i<a1.size();i++)
+ { int flag=0;
+ //System.out.println("a1.ele  "+a1.get(i));
+     for(int h=0;h<a2.size();h++)
+        {//System.out.println("a2.ele  "+a2.get(h));
+            if((a1.get(i).equals(a2.get(h))))
+                {
+                    flag=1;
+                    temp=h;
+                    break;
+                    
+                }
+        }
+        if(flag==1)
+        {a2.remove(temp);}
+        else count++;
+ //System.out.println("a1"+a1);
+ //System.out.println("count"+count);
+//System.out.println("a2"+a2);
+ }
+ System.out.println(count);
+        }
+ }
+ 
+       }
+       
+    
+ 
+ 
+ catch(IOException e){}
+    }
+    
+   
+}

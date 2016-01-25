@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+try{
+    InputStreamReader in=new InputStreamReader(System.in);
+    BufferedReader in1=new BufferedReader(in);
+    int N=Integer.parseInt(in1.readLine());
+    BigInteger sum=new BigInteger("1");
+    BigInteger n=BigInteger.valueOf(N);
+    while(n.compareTo(BigInteger.ZERO)>0 )
+        {
+        sum=sum.multiply(n);
+         
+        n = n.subtract(BigInteger.ONE);
+        }
+    
+    System.out.println(sum);
+    }
+        catch(IOException e){}
+    }
+}

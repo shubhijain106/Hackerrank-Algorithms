@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */try{InputStreamReader in=new InputStreamReader(System.in);
+        BufferedReader in1=new BufferedReader(in);
+          String s=in1.readLine();
+           String p=in1.readLine();
+                                                                                                                           String[] num=p.split(" ");
+           int d=Integer.parseInt(s); 
+                                                                                                                           int sum=0;
+                                                                                                                           for (int i=0;i<d;i++)
+                                                                                                                           {
+          int count=Integer.parseInt(num[i]);
+                                                                                                                               sum=sum+count;
+           }
+          System.out.println(sum);                                                                                                                 
+                                                                                                                          }catch(IOException e){}
+    }}

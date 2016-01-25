@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+  try{
+      InputStreamReader in=new InputStreamReader(System.in);
+      BufferedReader in1=new BufferedReader(in);
+      String s=in1.readLine();
+      int n=Integer.parseInt(s);
+      for(int i=0;i<n;i++)
+          {int count=0;
+           String part=in1.readLine();
+          String[] thresh=part.split(" ");
+          String stud=in1.readLine();
+          String[] timein=stud.split(" ");
+          int k=Integer.parseInt(thresh[1]);
+          int N=Integer.parseInt(thresh[0]);
+          for(int j=0;j<N;j++)
+          {
+          int a=Integer.parseInt(timein[j]);
+              if((a<0) ||(a==0))
+                  count++;
+          }
+          if(count<k)
+              System.out.println("YES");
+              else
+              System.out.println("NO");
+          }
+      
+  }catch(IOException e){}
+    }
+}

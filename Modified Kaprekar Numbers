@@ -1,0 +1,95 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+ try{
+     InputStreamReader in=new InputStreamReader(System.in);
+ 
+    BufferedReader in1=new BufferedReader(in);
+   int ll=Integer.parseInt(in1.readLine());
+     int hl=Integer.parseInt(in1.readLine());  
+     int flag=0;
+   
+     for(int in2=ll;in2<=hl;in2++)
+     {
+        // long sq=i*i;
+     BigInteger i  = BigInteger.valueOf(in2);
+     BigInteger sq = i.multiply(i);
+
+    //System.out.println(bd.multiply(new BigInteger("15")));
+          //System.out.println("sq"+sq);
+         String x= String.valueOf(sq);
+        // System.out.println("x"+x);
+         int n=x.length();
+         if(n==1)
+         {
+          int lr=Integer.parseInt(x);
+          if(lr==in2)
+          {
+              System.out.print(in2+" ");
+              flag=1;
+          }
+         }
+          else if(n==2)
+          {
+                String part[]=x.split("");
+                int l=Integer.parseInt(part[0]);
+                int r=Integer.parseInt(part[1]);
+                 if(l+r==in2)
+                 {
+                     System.out.print(in2+" ");
+                     flag=1;
+                    
+                 }
+          }
+         else
+          {
+          for(int d=1;d<=n;)
+//          {String l1 = x.substring(0, d-1);
+//               System.out.println("l1"+l1);
+//                String r1 = x.substring(d-1); 
+//                System.out.println("r1"+r1);
+             
+              if(d+d==n)
+              {
+                
+                String l = x.substring(0, d);
+               
+                String r = x.substring(d);
+                
+                 if(Integer.parseInt(l)+Integer.parseInt(r)==in2)
+                 {System.out.print(in2+" ");
+                 flag=1;
+                 break;}
+                 else d=d+1;
+              }
+              else if(d+(d-1)==n)
+              {
+                String l = x.substring(0, d-1);
+               //System.out.println("l"+l);
+                String r = x.substring(d-1); 
+                //System.out.println("r"+r);
+                
+                 if(Integer.parseInt(l)+Integer.parseInt(r)==in2)
+                 {System.out.print(in2+" ");
+                 flag=1;
+                 break;
+                 }
+                 else d=d+1;
+              }
+              else
+              d++;
+          }
+         }
+         
+     
+     if(flag!=1)
+         System.out.println("INVALID RANGE");
+ }catch(IOException e){}
+    }
+    
+   
+}

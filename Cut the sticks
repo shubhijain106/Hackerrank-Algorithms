@@ -1,0 +1,58 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+try{
+    InputStreamReader in=new InputStreamReader(System.in);
+        BufferedReader in1=new BufferedReader(in);
+        int N=Integer.parseInt(in1.readLine());
+         String range=in1.readLine();
+         String[] part=range.split(" ");
+    int[] arr=new int[N];
+     for(int k=0;k<N;k++)
+     {  
+       arr[k]=Integer.parseInt(part[k]);  
+     }
+       int flag=1;
+       while(flag==1)
+            {
+         int count=0;
+         int min = findmin(arr);
+         if(min == -1)
+            {flag=0;
+             break;
+            }
+            for(int k=0;k<N;k++)
+            { 
+            if(arr[k]!=0)
+           {
+           arr[k]=arr[k]-min;
+          count++;
+           } 
+        }
+    
+     System.out.println(count);
+     }
+ }catch(IOException e){}
+}
+    public static int findmin(int[] arr) 
+    {
+        int y=arr[0];
+        for(int h=1;h<arr.length;h++){
+            if(y==0)
+            y=arr[h];
+            else
+            if(y>arr[h] && arr[h]!=0)
+                y=arr[h];
+        }
+        
+        if(y==0)
+            return -1;
+        else
+            return y;
+    }
+   
+    
+    }

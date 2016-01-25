@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+     try{
+    InputStreamReader in=new InputStreamReader(System.in);
+        BufferedReader in1=new BufferedReader(in);
+         int T=Integer.parseInt(in1.readLine());
+         for(int i=0;i<T;i++)
+             {
+               String prob=in1.readLine();
+             String[] part=prob.split(" ");
+             int n=Integer.parseInt(part[0]);
+             int c=Integer.parseInt(part[1]);
+             int m=Integer.parseInt(part[2]);
+             int num=(n/c);
+             
+             
+             if(num>=m)
+             System.out.println(num+findextra(num,m));
+                 
+             else System.out.println(num);
+             }
+     }
+        catch(IOException e){}
+    }
+   public static int findextra(int num,int m)
+       {int sum=0;
+        int count=0;
+        int left;
+        while(num>=m)
+        {
+          count=num/m;
+          sum=sum+count;
+          left=num%m;
+       num=left+count;
+       }
+       
+           return sum;
+       }
+}

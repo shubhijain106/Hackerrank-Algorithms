@@ -1,0 +1,74 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+ try{
+     InputStreamReader in=new InputStreamReader(System.in);
+ 
+    BufferedReader in1=new BufferedReader(in);
+   String s=in1.readLine();
+   int l=s.length();
+   String[] parts=s.split(" ");
+   ArrayList<Character> str=new ArrayList<Character>();
+   for(int i=0;i<parts.length;i++)
+   {    String[] parts1=parts[i].split("");
+   
+   for(int w=0;w<parts1.length;w++)
+   {str.add(parts1[w].charAt(0));
+    }
+   }
+   
+   //System.out.println("str"+str);
+ //System.out.println("size"+str.size());
+   ArrayList<Character> sal=new ArrayList<Character>();
+   for(int i=0;i<26;i++)
+   {
+       sal.add((char)(97+i));
+   }
+   ArrayList<Character> bal=new ArrayList<Character>();
+   for(int i=0;i<26;i++)
+   {
+       bal.add((char)(65+i));
+   }
+   int flag=0;
+   
+   for(int i=0;i<str.size();i++)
+   {
+       int count=0;
+       for(int j=0;j<sal.size();j++)
+   
+        {   
+                        
+                        if(str.get(i).equals(sal.get(j)) || str.get(i).equals(bal.get(j)) )
+                        {  
+                             count=1;
+                           sal.remove(j);
+                           bal.remove(j);
+                           break;
+                        }
+           if(i==(str.size()-1) && (!(sal.isEmpty() && bal.isEmpty())))
+                        {flag=1;
+                        break;
+                        
+                        }
+                      
+                    
+        }
+       
+       //System.out.println("sal"+sal);
+       //System.out.println("bal"+bal);
+       if(flag==1)
+           break;
+   }
+if(sal.isEmpty() && bal.isEmpty())
+    System.out.println("pangram");
+else
+     System.out.println("not pangram");
+     }catch(IOException e){}
+    }
+    
+   
+}

@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        try{InputStreamReader in=new InputStreamReader (System.in);
+        BufferedReader in1=new BufferedReader(in);
+        String s;
+        String p;
+        s=in1.readLine();
+        p=in1.readLine();
+       int count1=0;int count2=0;int count3=0;
+        int no=Integer.parseInt(s);
+        
+        String[] l=p.split(" ");
+         for(int i=0;i<l.length;i++)
+             {
+             int g=Integer.parseInt(l[i]);
+            if(g<0)
+                count2++;
+            else if(g>0)
+                count1++;
+                else count3++;
+             }
+        System.out.println((float)count1/l.length);
+        System.out.println((float)count2/l.length);
+        System.out.println((float)count3/l.length);
+           }catch(IOException e){}    
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    }
+}

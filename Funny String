@@ -1,0 +1,51 @@
+import java.io.*;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+ try{
+     InputStreamReader in=new InputStreamReader(System.in);
+ 
+    BufferedReader in1=new BufferedReader(in);
+   int t=Integer.parseInt(in1.readLine());
+    for(int i=0;i<t;i++)
+    {
+        String s1=in1.readLine();
+        char[] s= new char[s1.length()];
+        char[] r= new char[s1.length()];
+        String[] parts=s1.split("");
+        for(int j=0;j<s1.length();j++)
+        {
+            s[j]=parts[j].charAt(0);
+            //System.out.println("s[j]"+s[j]);
+        }
+        for(int j=0;j<s1.length();j++)
+        {
+            r[j]=parts[(s1.length()-1)-j].charAt(0);
+            //System.out.println("r[j]"+r[j]);
+        }
+        int flag=0;
+        for(int u=1;u<s.length;u++)
+        {
+           int sabs=Math.abs(s[u]-s[u-1]);
+           //System.out.println("sabs"+sabs);
+           int rabs=Math.abs(r[u]-r[u-1]);
+           // System.out.println("rabs"+rabs);
+           if(sabs!=rabs)
+           {flag=1;
+           break;
+           }
+        }
+        if(flag==1)
+            System.out.println("Not Funny");
+        else
+           System.out.println("Funny"); 
+    }
+   
+     }catch(IOException e){}
+    }
+    
+   
+}

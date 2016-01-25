@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       try{
+    InputStreamReader in=new InputStreamReader(System.in);
+        BufferedReader in1=new BufferedReader(in);
+         int N=Integer.parseInt(in1.readLine());
+           String prob=in1.readLine();
+          int k=Integer.parseInt(in1.readLine()); 
+           int K=k%26;
+           char[] chars = prob.toCharArray();
+           for(int i=0;i<N;i++)
+               {
+               if(((int)chars[i]>=65 && (int)chars[i]<=90))  
+                   { 
+                  chars[i]=(char)(K+(int)chars[i]);
+                 if ((int)chars[i]>90)
+                     chars[i]=(char)((int)chars[i]-26);}
+               
+               else if ((int)chars[i]>=97 && (int)chars[i]<=122)
+               {chars[i]=(char)(K+(int)chars[i]);
+                   if ((int)chars[i]>122)
+                   chars[i]=(char)((int)chars[i]-26);
+                if ((int)chars[i]<20)
+               {chars[i]=(char)(5+(int)chars[i]+96);}
+               
+               }
+                   
+              else
+                   continue;
+           }
+          for(int i=0;i<chars.length;i++)
+               System.out.print(chars[i]);
+           
+    }
+        catch(IOException e){}
+    }}
